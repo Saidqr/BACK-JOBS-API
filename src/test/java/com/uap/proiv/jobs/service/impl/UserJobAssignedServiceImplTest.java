@@ -2,7 +2,6 @@ package com.uap.proiv.jobs.service.impl;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.uap.proiv.jobs.client.JobApiRepository;
 import com.uap.proiv.jobs.dto.AssignedResponse;
 import com.uap.proiv.jobs.dto.Job;
 import com.uap.proiv.jobs.dto.User;
@@ -14,15 +13,12 @@ import com.uap.proiv.jobs.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
