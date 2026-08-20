@@ -91,8 +91,8 @@ public class UserJobAssignedServiceImplTest {
 
 
         assignedResponse = new ArrayList<>();
-        assignedResponse.add(new AssignedResponse(1, 2));
-        assignedResponse.add(new AssignedResponse(2, 1));
+        assignedResponse.add(new AssignedResponse(10, 2));
+        assignedResponse.add(new AssignedResponse(20, 1));
     }
 
     @Test
@@ -100,17 +100,16 @@ public class UserJobAssignedServiceImplTest {
     void assign_succesOnePage(){
         when(jobService.getAllJobs()).thenReturn(jobs);
         when(userService.search(1)).thenReturn(userApiResponse);
-        when(assignedService.create(jobs, List.of(1,2))).thenReturn(assignedResponse);
+        when(assignedService.create(jobs, List.of(10, 20))).thenReturn(assignedResponse); 
 
         List<UserJobAssigned> result = userJobAssignedServiceImpl.assign();
 
         assertNotNull(result);
         assertEquals(2, result.size());
-        assertEquals(1, result.get(0).getUsers().get(0).getId());
+        assertEquals(10, result.get(0).getUsers().get(0).getId()); 
 
         verify(jobService, times(1)).getAllJobs();
         verify(userService, times(1)).search(1);
-        verify(assignedService, times(1)).create(jobs, List.of(10,20));
-
+        verify(assignedService, times(1)).create(jobs, List.of(10, 20));
     }
 }
